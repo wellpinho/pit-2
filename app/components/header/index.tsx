@@ -1,4 +1,4 @@
-import { CoffeeBean } from "@phosphor-icons/react/dist/ssr";
+import { Basket, CoffeeBean } from "@phosphor-icons/react/dist/ssr";
 
 const Header = () => {
     return (
@@ -28,6 +28,9 @@ const Header = () => {
 			</ul>
 		</div>
 		<div className="items-center flex-shrink-0 hidden lg:flex">
+            <button className="px-4 py-3 font-semibold rounded dark:bg-violet-600 dark:text-gray-50">
+                <Basket size={32} />
+            </button>
             <button className="px-4 py-3 font-semibold rounded dark:bg-violet-600 dark:text-gray-50">Login</button>
 			<button className="px-4 py-3 font-semibold rounded dark:bg-violet-600 dark:text-gray-50">Register</button>
 		</div>

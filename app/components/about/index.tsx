@@ -60,7 +60,7 @@ export const About = () => {
                             height={800} 
                             src="/assets/home_kafe_three_services 1.svg" 
                             alt="home" 
-                            className="min-w-[45rem] md:ml-[-156px]"
+                            className="min-w-[45rem] md:ml-[-156px] md:mt-[-10px]"
                         />
                     </div>
                     <div>

@@ -26,3 +26,7 @@ body {
     text-wrap: balance;
   }
 }
+
+.paddingComponent {
+    padding: 5rem 0;
+}

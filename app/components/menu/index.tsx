@@ -5,7 +5,7 @@ export const MwnuItems = () => {
     return (
         <div className="h-screen w-full bg-[url('/assets/bg.svg')]">
             <div className="container mx-auto">
-                <h2 className="text-center text-6xl pt-32 pb-10">
+                <h2 className="text-center text-6xl paddingComponent pb-10">
                     Temos orgulho de oferecer nossos cafés exclusivos
                 </h2>
 

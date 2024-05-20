@@ -1,4 +1,5 @@
 import { Basket, CoffeeBean } from "@phosphor-icons/react/dist/ssr";
+import Link from "next/link";
 
 const Header = () => {
     return (
@@ -11,7 +12,7 @@ const Header = () => {
 			</a>
 			<ul className="items-stretch hidden space-x-3 lg:flex">
 				<li className="flex">
-					<a href="#" className="flex items-center px-4 -mb-1">Home</a>
+					<a href="/" className="flex items-center px-4 -mb-1">Home</a>
 				</li>
 				<li className="flex">
 					<a href="#" className="flex items-center px-4 -mb-1">Serviços</a>
@@ -29,10 +30,14 @@ const Header = () => {
 		</div>
 		<div className="items-center flex-shrink-0 hidden lg:flex">
             <button className="px-4 py-3 font-semibold rounded dark:bg-violet-600 dark:text-gray-50">
-                <Basket size={32} />
+				<Link href="/cart"><Basket size={32} /></Link>
             </button>
-            <button className="px-4 py-3 font-semibold rounded dark:bg-violet-600 dark:text-gray-50">Login</button>
-			<button className="px-4 py-3 font-semibold rounded dark:bg-violet-600 dark:text-gray-50">Register</button>
+            <button className="px-4 py-3 font-semibold rounded dark:bg-violet-600 dark:text-gray-50">
+				<Link href="/login">Entrar</Link>
+			</button>
+			<button className="px-4 py-3 font-semibold rounded dark:bg-violet-600 dark:text-gray-50">
+			<Link href="/register">Cadastrar</Link>
+			</button>
 		</div>
 		<button className="p-4 lg:hidden">
 			<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6 dark:text-gray-800">

@@ -7,22 +7,32 @@ const Register = () => {
                 <h1 className="text-4xl mb-5 text-customGold font-bold">Criar conta</h1>
 
                 <div className="flex flex-col text-customDark">
-                <label htmlFor="email">Nome e sobrenome</label>
+                    <label htmlFor="name">Nome</label>
+                    <input
+                        className="px-5 py-2 border bg-gray-200 rounded mb-5"
+                        type="text"
+                        name="name" 
+                    />
+
+                    <label htmlFor="lastname">Sobrenome</label>
                     <input
                         className="px-5 py-2 border bg-gray-200 rounded mb-5"
                         type="text" 
+                        name="lastname"
                     />
 
                     <label htmlFor="email">Email</label>
                     <input
                         className="px-5 py-2 border bg-gray-200 rounded mb-5"
-                        type="email" 
+                        type="email"
+                        name="email" 
                     />
 
                     <label htmlFor="email">Senha</label>
                     <input
                         className="px-5 py-2 border bg-gray-200 rounded mb-5"
                         type="password" 
+                        name="password"
                     />
 
                     <button className="

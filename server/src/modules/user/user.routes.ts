@@ -1,6 +1,7 @@
 import { Router } from "express";
 import {
     createUserController,
+    deleteUserController,
     listUsersController,
     showUserController,
     updateUserController,
@@ -14,33 +15,8 @@ const userRoutes = Router();
 userRoutes.get("/users", listUsersController);
 userRoutes.get("/user/:id", showUserController);
 userRoutes.post("/users", createUserSchema, createUserController);
-
-// userRoutes.post(
-//     "/users/admin",
-//     celebrate({
-//         [Segments.BODY]: Joi.object().keys({
-//             firstName: Joi.string().required(),
-//             lastName: Joi.string().required(),
-//             phone: Joi.string().required(),
-//             email: Joi.string().required(),
-//             password: Joi.string().required(),
-//             age: Joi.number().required(),
-//             state: Joi.string().required(),
-//             city: Joi.string().required(),
-//             street: Joi.string().required(),
-//             numHouse: Joi.string().required(),
-//             zipcode: Joi.string().required(),
-//             cpf: Joi.string().required(),
-//             cnpj: Joi.string(),
-//             birth: Joi.string().required(),
-//         }),
-//     }),
-//     createAdminController
-// );
-
-// userRoutes.get("/user/:id", showUserController);
 userRoutes.put("/user/:id", updateUserSchema, updateUserController);
-// userRoutes.delete("/user/:id", deleteUserController);
+userRoutes.delete("/user/:id", deleteUserController);
 // userRoutes.post(
 //     "/sessions/users",
 //     celebrate({

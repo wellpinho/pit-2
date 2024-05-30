@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import {
     createUserService,
+    deleteUserService,
     listUsersService,
     showUserService,
     updateUserService,
@@ -34,12 +35,12 @@ const updateUserController = async (req: Request, res: Response) => {
     return res.json(user);
 };
 
-// const deleteUserController = async (req: Request, res: Response) => {
-//     const { id } = req.params;
-//     const user = await deleteUserService({ id });
+const deleteUserController = async (req: Request, res: Response) => {
+    const { id } = req.params;
+    const user = await deleteUserService({ id });
 
-//     return res.json(user);
-// };
+    return res.json(user);
+};
 
 // const createSessionController = async (req: Request, res: Response) => {
 //     const { email, password } = req.body;
@@ -70,7 +71,7 @@ export {
     // createAdminController,
     showUserController,
     updateUserController,
-    // deleteUserController,
+    deleteUserController,
     // createSessionController,
     // createAdminSessionController,
     // userDetailsController,

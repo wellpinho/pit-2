@@ -1,7 +1,7 @@
 import bcrypt, { compare } from "bcrypt";
 import { prismaClient } from "../../prismaClient";
 import { sign } from "jsonwebtoken";
-import { ICreateUser, IUpdate } from "../../interface";
+import { ICreateUser, IDelete, IUpdate } from "../../interface";
 import { AppError } from "../../errors/AppErrors";
 import { authConfig } from "../../config/auth";
 
@@ -82,17 +82,18 @@ const updateUserService = async ({ id, email, password }: IUpdate) => {
     }
 };
 
-// const deleteUserService = async ({ id }: IDelete) => {
-//     const user = await prismaClient.user.delete({
-//         where: { id },
-//     });
+const deleteUserService = async ({ id }: IDelete) => {
+    try {
+        await prismaClient.user.delete({
+            where: { id },
+        });
 
-//     if (!user) {
-//         throw new AppError("User not found!");
-//     }
+        return { status: 200, message: 'User deleted successfuly' };
+    } catch (error) {
+        throw new AppError("User not found!");
+    }
 
-//     return "User deleted successfuly";
-// };
+};
 
 // const createSessionService = async ({ email, password }: ISession) => {
 //     const user = await prismaClient.user.findUnique({
@@ -168,7 +169,7 @@ export {
     // createAdminService,
     showUserService,
     updateUserService,
-    // deleteUserService,
+    deleteUserService,
     // createSessionService,
     // createAdminSessionService,
     // userDetailsService,

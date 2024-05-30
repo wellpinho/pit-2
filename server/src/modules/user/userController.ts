@@ -1,8 +1,15 @@
 import { Request, Response } from "express";
 import {
     createUserService,
+    listUsersService,
     updateUserService,
 } from "./userService";
+
+const listUsersController = async (req: Request, res: Response) => {
+    const users = await listUsersService();
+
+    return res.json(users);
+};
 
 const createUserController = async (req: Request, res: Response) => {
     const { ...userData } = req.body;
@@ -10,12 +17,6 @@ const createUserController = async (req: Request, res: Response) => {
 
     return res.json(user);
 };
-
-// const listUsersController = async (req: Request, res: Response) => {
-//     const users = await listUsersService();
-
-//     return res.json(users);
-// };
 
 // const showUserController = async (req: Request, res: Response) => {
 //     const { id } = req.params;
@@ -63,9 +64,9 @@ const updateUserController = async (req: Request, res: Response) => {
 // };
 
 export {
+    listUsersController,
     createUserController,
     // createAdminController,
-    // listUsersController,
     // showUserController,
     updateUserController,
     // deleteUserController,

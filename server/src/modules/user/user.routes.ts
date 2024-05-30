@@ -1,6 +1,7 @@
 import { Router } from "express";
 import {
     createUserController,
+    listUsersController,
     updateUserController,
 } from "./userController";
 // import { isAuthenticated } from "../../middlewares/isAuthenticated";
@@ -9,7 +10,7 @@ import { createUserSchema, updateUserSchema } from "../../schema/User";
 
 const userRoutes = Router();
 
-// userRoutes.get("/users", listUsersController);
+userRoutes.get("/users", listUsersController);
 userRoutes.post("/users", createUserSchema, createUserController);
 
 // userRoutes.post(

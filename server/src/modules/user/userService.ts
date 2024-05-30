@@ -38,16 +38,16 @@ const createUserService = async (userData: ICreateUser) => {
     }
 };
 
-// const listUsersService = async () => {
-//     const users = await prismaClient.user.findMany({
-//         select: {
-//             firstName: true,
-//             lastName: true,
-//         },
-//     });
+const listUsersService = async () => {
+    const users = await prismaClient.user.findMany({ 
+        select: { 
+            name: true, 
+            email: true 
+        } 
+    });
 
-//     return users;
-// };
+    return users;
+}
 
 // const showUserService = async (id: string) => {
 //     const user = await prismaClient.user.findUnique({
@@ -158,9 +158,9 @@ const updateUserService = async ({ id, email, password }: IUpdate) => {
 // }
 
 export {
+    listUsersService,
     createUserService,
     // createAdminService,
-    // listUsersService,
     // showUserService,
     updateUserService,
     // deleteUserService,

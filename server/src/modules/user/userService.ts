@@ -5,6 +5,18 @@ import { ICreateUser, IUpdate } from "../../interface";
 import { AppError } from "../../errors/AppErrors";
 import { authConfig } from "../../config/auth";
 
+const listUsersService = async () => {
+    const users = await prismaClient.user.findMany({ 
+        select: { 
+            id: true, 
+            name: true, 
+            email: true 
+        } 
+    });
+
+    return users;
+}
+
 const createUserService = async (userData: ICreateUser) => {
     const hasUser = await prismaClient.user.findUnique({
         where: { email: userData.email },
@@ -38,28 +50,21 @@ const createUserService = async (userData: ICreateUser) => {
     }
 };
 
-const listUsersService = async () => {
-    const users = await prismaClient.user.findMany({ 
-        select: { 
-            name: true, 
-            email: true 
-        } 
+const showUserService = async (id: string) => {
+    const user = await prismaClient.user.findUnique({
+        where: { id },
+        select: {
+            name: true,
+            email: true,
+        }
     });
 
-    return users;
-}
+    if (!user) {
+        throw new AppError("User not found!");
+    }
 
-// const showUserService = async (id: string) => {
-//     const user = await prismaClient.user.findUnique({
-//         where: { id },
-//     });
-
-//     if (!user) {
-//         throw new AppError("User not found!");
-//     }
-
-//     return user;
-// };
+    return user;
+};
 
 const updateUserService = async ({ id, email, password }: IUpdate) => {
     try {
@@ -161,7 +166,7 @@ export {
     listUsersService,
     createUserService,
     // createAdminService,
-    // showUserService,
+    showUserService,
     updateUserService,
     // deleteUserService,
     // createSessionService,

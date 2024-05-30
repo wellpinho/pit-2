@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import {
     createUserService,
     listUsersService,
+    showUserService,
     updateUserService,
 } from "./userService";
 
@@ -18,12 +19,12 @@ const createUserController = async (req: Request, res: Response) => {
     return res.json(user);
 };
 
-// const showUserController = async (req: Request, res: Response) => {
-//     const { id } = req.params;
-//     const users = await showUserService(id);
+const showUserController = async (req: Request, res: Response) => {
+    const { id } = req.params;
+    const users = await showUserService(id);
 
-//     return res.json(users);
-// };
+    return res.json(users);
+};
 
 const updateUserController = async (req: Request, res: Response) => {
     const { ...data } = req.body;
@@ -67,7 +68,7 @@ export {
     listUsersController,
     createUserController,
     // createAdminController,
-    // showUserController,
+    showUserController,
     updateUserController,
     // deleteUserController,
     // createSessionController,

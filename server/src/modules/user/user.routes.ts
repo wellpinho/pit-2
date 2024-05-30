@@ -2,6 +2,7 @@ import { Router } from "express";
 import {
     createUserController,
     listUsersController,
+    showUserController,
     updateUserController,
 } from "./userController";
 // import { isAuthenticated } from "../../middlewares/isAuthenticated";
@@ -11,6 +12,7 @@ import { createUserSchema, updateUserSchema } from "../../schema/User";
 const userRoutes = Router();
 
 userRoutes.get("/users", listUsersController);
+userRoutes.get("/user/:id", showUserController);
 userRoutes.post("/users", createUserSchema, createUserController);
 
 // userRoutes.post(
@@ -37,7 +39,7 @@ userRoutes.post("/users", createUserSchema, createUserController);
 // );
 
 // userRoutes.get("/user/:id", showUserController);
-userRoutes.put("/users/:id", updateUserSchema, updateUserController);
+userRoutes.put("/user/:id", updateUserSchema, updateUserController);
 // userRoutes.delete("/user/:id", deleteUserController);
 // userRoutes.post(
 //     "/sessions/users",

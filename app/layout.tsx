@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
+import { QueryClientProvider } from "react-query";
+import { queryClient } from "./context/queryClient";
 
 const cormorant = Cormorant_Garamond({ 
   subsets: ['latin'],
@@ -19,7 +21,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cormorant.className}>{children}</body>
+      <body className={cormorant.className}>
+        <QueryClientProvider client={queryClient}>
+          {children}
+        </QueryClientProvider>
+      </body>
     </html>
   );
 }

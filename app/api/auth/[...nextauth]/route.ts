@@ -1,6 +1,8 @@
+import { getUser } from "@/app/context/queryData";
 import { randomUUID } from "crypto";
 import NextAuth from "next-auth"
 import CredentialsProvider from "next-auth/providers/credentials"
+import { MongoDBAdapter } from "@auth/mongodb-adapter"
 
 const handler = NextAuth({
     pages: {
@@ -24,8 +26,6 @@ const handler = NextAuth({
                 if (!credentials) {
                     return null;
                 }
-
-                console.log(credentials)
 
                 if (
                     credentials?.email &&  credentials?.password

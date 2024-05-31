@@ -7,13 +7,6 @@ export const RegisterComponent = () => {
                 <div className="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
                     <div className="bg-white px-6 py-8 rounded shadow-md text-black w-full">
                         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-                            <Image
-                                width={150}
-                                height={150}
-                                className="mx-auto h-10 w-auto"
-                                src="/assets/logo.svg"
-                                alt="Your Company"
-                            />
                             <h2 className="mt-4 mb-4 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
                                 Criar conta
                             </h2>

@@ -1,4 +1,3 @@
-import Image from "next/image"
 import Link from "next/link"
 
 export const LoginComponent = () => {
@@ -36,9 +35,9 @@ export const LoginComponent = () => {
 
                 <div className="text-grey-dark mt-6">
                     Não tem uma conta? 
-                    <a className="no-underline border-b border-blue text-blue-600 font-bold ml-2" href="/register">
+                    <Link className="no-underline border-b border-blue text-blue-600 font-bold ml-2" href="/register">
                         Crie uma
-                    </a>.
+                    </Link>.
                 </div>
             </div>
         </div>

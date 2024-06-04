@@ -23,4 +23,10 @@ interface ISession {
     password: string;
 }
 
-export { ICreateUser, IShowUser, IUpdate, IDelete, ISession };
+export { 
+    ICreateUser, 
+    IShowUser, 
+    IUpdate, 
+    IDelete, 
+    ISession 
+};

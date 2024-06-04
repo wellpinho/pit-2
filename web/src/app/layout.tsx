@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
+import { ToastContainer } from "react-toastify";
 
-const cormorant = Cormorant_Garamond({ 
+const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
   weight: ["300", "500", "700"],
 });
@@ -19,7 +20,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cormorant.className}>{children}</body>
+      <body className={cormorant.className}>
+        {children}
+      </body>
     </html>
   );
 }

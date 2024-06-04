@@ -5,6 +5,7 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { useState } from 'react'
 import Image from 'next/image'
 import { Navigation } from '@/data/Navigation'
+import Link from 'next/link'
 
 export const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -15,7 +16,7 @@ export const Header = () => {
             <header className="absolute inset-x-0 top-0 z-50">
                 <nav className="max-w-screen-xl mx-auto flex items-center justify-between p-6 lg:px-8" aria-label="Global">
                     <div className="flex lg:flex-1">
-                        <a href="#" className="-m-1.5 p-1.5 flex items-center gap-2 text-3xl text-gray-600 font-bold">
+                        <Link href="#" className="-m-1.5 p-1.5 flex items-center gap-2 text-3xl text-gray-600 font-bold">
                             <Image
                                 width={150}
                                 height={150}
@@ -24,7 +25,7 @@ export const Header = () => {
                                 alt=""
                             />
                             <span>Cafeteria</span>
-                        </a>
+                        </Link>
                     </div>
                     <div className="flex lg:hidden">
                         <button
@@ -38,18 +39,18 @@ export const Header = () => {
                     </div>
                     <div className="hidden lg:flex lg:gap-x-12">
                         {Navigation.map((item) => (
-                            <a key={item.name} href={item.href} className="text-sm font-semibold leading-6 text-gray-900">
+                            <Link key={item.name} href={item.href} className="text-sm font-semibold leading-6 text-gray-900">
                                 {item.name}
-                            </a>
+                            </Link>
                         ))}
                     </div>
                     <div className="hidden lg:flex lg:flex-1 lg:justify-end gap-4">
-                        <a href="/login" className="text-sm font-semibold leading-6 text-gray-900 hover:text-indigo-600">
+                        <Link href="/login" className="text-sm font-semibold leading-6 text-gray-900 hover:text-indigo-600">
                             Entrar <span aria-hidden="true">&rarr;</span>
-                        </a>
-                        <a href="/register" className="text-sm font-semibold leading-6 text-gray-900 hover:text-indigo-600">
+                        </Link>
+                        <Link href="/register" className="text-sm font-semibold leading-6 text-gray-900 hover:text-indigo-600">
                             Criar conta <span aria-hidden="true">&rarr;</span>
-                        </a>
+                        </Link>
                     </div>
                 </nav>
                 <Dialog className="lg:hidden" open={isOpen} onClose={() => setIsOpen(false)}>
@@ -69,28 +70,27 @@ export const Header = () => {
                             <div className="-my-6 divide-y divide-gray-500/10">
                                 <div className="space-y-2 py-6">
                                     {Navigation.map((item) => (
-                                        <a
+                                        <Link
                                             key={item.name}
                                             href={item.href}
                                             className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                                         >
                                             {item.name}
-                                        </a>
+                                        </Link>
                                     ))}
                                 </div>
                                 <div className="py-6">
-                                    <a
+                                    <Link 
                                         href="/login"
                                         className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                                     >
                                         Entrar
-                                    </a>
-                                    <a
+                                    </Link>
+                                    <Link
                                         href="#"
                                         className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                                    >
-                                        Cadastrar
-                                    </a>
+                                    >Cadastrar
+                                    </Link>
                                 </div>
                             </div>
                         </div>

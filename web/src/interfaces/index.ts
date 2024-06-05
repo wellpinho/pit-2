@@ -9,3 +9,11 @@ export interface InputComponent {
     type: string, 
     placeholder: string, 
 }
+
+export interface IProduct {
+    image: string;
+    title: string;
+    description: string;
+    price: number;
+    quantity: number;
+}

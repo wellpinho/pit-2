@@ -11,7 +11,7 @@ export const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <div className="bg-[url('/assets/header-bg.svg')]">
+        <div>
             <div className='bg-[url("/assets/coffee-img.svg")] min-w-[350px] h-56 absolute left-0 top-0' />
             <header className="absolute inset-x-0 top-0 z-50">
                 <nav className="max-w-screen-xl mx-auto flex items-center justify-between p-6 lg:px-8" aria-label="Global">

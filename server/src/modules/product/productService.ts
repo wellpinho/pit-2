@@ -1,6 +1,8 @@
 import { IProduct } from "../../interface/Product";
 import { prismaClient } from "../../prismaClient";
 
+const listProductsService = async () => prismaClient.product.findMany();
+
 const createProductService = async (data: IProduct) => {
     try {
         const product = await prismaClient.product.create({
@@ -19,4 +21,4 @@ const createProductService = async (data: IProduct) => {
     }
 }
 
-export { createProductService }
+export { createProductService, listProductsService }

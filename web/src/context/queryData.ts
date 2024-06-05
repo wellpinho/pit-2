@@ -14,3 +14,8 @@ export const storeDetail = async (slug: string) => {
     const response = await axiosApi.get(`/company/${slug}`);
     return response.data;
 };
+
+export const getProducts = async () => {
+    const response = await axiosApi.get('/products');
+    return response.data;
+}
